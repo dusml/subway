@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+#container{
+  background-color: #f2f2f2;
+}
+
+.sub_header{
+  position: absolute;
+  width: 100%;/*부모가 가로길이가 있어야 text-align: center;가 된다.*/
+  height: 60px;
+  border-bottom:1px solid rgba(255,255,255,0.4);
+  z-index: 5;
+}
+.sub_header_in{
+  text-align: center;
+  
+}
+.sub_header_in ul{
+  overflow: hidden;
+  display: inline-block;
+}
+.sub_header_in li{
+  float: left;
+  margin: 0 20px;
+}
+.sub_header_in a{
+  display: inline-block;
+  line-height: 60px;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.sub_header_in li.active a{
+  color: var(--green);
+  font-weight: 600;
+}
+.sub_header_in li.active::after{
+  display: block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--green);
+  /* margin-top: -4px; */
+  position: relative;
+  bottom: 4px;
+}
+
+.sub_visual{
+  height: 380px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.sub_visual h2{
+  font-size: 70px;
+  background: none;
+  padding: 95px 0 0 25px;
+  animation: toUp 500ms ease-in;
+}
+.sub_visual p{
+  line-height: 1.6;
+  animation: toUp 500ms ease-in 200ms forwards;/*뒤에 나오는 시간은 딜레이 시간 ,forwards마지막 위치 에서 멈춰*/
+  opacity: 0;
+}
+.sub_visual {}
+
+.morning{
+  /* height: 100%; */
+  background:#f2b701 url('../img/bg_visual_morning.png') 50% no-repeat;
+  
+}
+.morning .img1{
+  width: 508px;
+  height: 549px;
+  background: url('../img/img_visual_morning01.jpg');
+  position: absolute;
+  left: 50%;
+  margin-left: 360px;
+  top: 0px;
+  animation: toDown 500ms ease-in 700ms forwards;
+  opacity: 0;
+}
+.morning .img2{
+  width: 327px;
+  height: 215px;
+  background: url('../img/img_visual_morning02.jpg');
+  position: absolute;
+  left: 50%;
+  margin-left:-660px ;
+  top:0px;
+  animation: toLeft 500ms ease-in 500ms forwards;
+  opacity: 0;
+}
+
+@keyframes toUp{
+  0%{transform: translateY(100px); opacity: 0;}
+  100%{transform: translateY(0px); opacity: 1;}
+}
+
+@keyframes toDown{
+  0%{transform: translateY(-100px); opacity: 0;}
+  100%{transform: translateY(0px); opacity: 1;}
+}
+
+@keyframes toLeft{
+  0%{transform: translateX(90px); opacity: 0;}
+  100%{transform: translateX(0px); opacity: 1;}
+}
+
+/* product */
+.product{
+  width: 1170px;
+  margin: auto;
+  position: relative;
+  top: -40px;
+}
+.pd_tab{
+  background: #fff;
+  text-align: center;
+  height: 80px;
+}
+.pd_tab ul{
+  display: inline-block;
+  overflow: hidden;
+}
+.pd_tab li{
+  float: left;
+  margin-right: 20px;
+}
+.pd_tab li + li::before{
+  display: inline-block;
+  content: "";
+  width: 1px;
+  height: 14px;
+  background-color: #cecece;
+  margin-right: 20px;
+}
+
+.pd_tab a{
+  line-height: 80px;
+  color: var(--gray1);
+  font-weight: 500;
+  display: inline-block;/*마우스 반응 하는 영역을 늘리기 위해서*/
+}
+.pd_tab li.active a{
+  color: var(--green);
+  font-weight: 600;
+}
+.pd_list{
+  padding: 50px 0px;
+}
+.pd_list ul{
+  overflow: hidden;
+}
+.pd_list li{
+  background: #fff;
+  width: 370px;
+  float: left;
+  margin: 0 30px 30px 0;
+  height: 330px;
+  text-align: center;
+  position: relative;/*마우스 올렸을때*/
+}
+/* 1170 - (여백30 *2) = 1110 / 3 = 370 */
+.pd_list li:nth-child(3n){
+  margin-right: 0px;
+}
+
+.pd_list a{}
+
+.pd_list figure{
+  /* border: 1px solid red; */
+  width: 270px;
+  margin: 20px auto 0;
+}
+.pd_list figure img{
+  width: 100%;
+}
+.pd_list .title{
+  font-size: 22px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  z-index: 5;
+  position: relative;
+  top: 0;
+}
+.pd_list .eng{
+  position: relative;
+  z-index: 5;
+  top: 0;
+}
+
+.pd_list .summary{
+  position: relative;
+  z-index: 5;
+  color: #e6ffa0;
+  padding: 0 20px;
+  font-size: 14px;
+  opacity: 0;
+  top: 0;
+}
+.pd_list .summary p{
+  line-height: 1.5;
+}
+.pd_list .viewBtn{
+  position: absolute; /* li이가 기준점이 되어야 한다.*/
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url("../img/btn_more.png") no-repeat 145px bottom;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  transform: scale(0.2);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+
+/* 마우스 올렸을 때 나다나야 하는 */
+
+.pd_list li:hover::after{
+  content: "";
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--green);
+}
+.pd_list li:hover .title{
+  color: #fff;
+  top: -150px;
+  transition: 0.4s ease-out;
+}
+.pd_list li:hover .eng{
+  color: #fff;
+  top: -142px;
+  transition: 0.4s ease-out;
+}
+.pd_list li:hover .summary{
+  top: -120px;
+  opacity: 1;
+  transition: 0.4s 0.4s ease-out;
+}
+.pd_list li:hover .viewBtn{
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.4s 0.5s ease-out;
+}

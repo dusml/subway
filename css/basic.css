@@ -1,0 +1,536 @@
+@charset "utf-8";
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap'); 1개씩 가져오는 법*/
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+:root{
+  --green:#009223;
+  --yellow:#ffce32;
+  --gray1:#666666;
+  --gray2:#999999;
+}
+
+body{
+  font-family:  "Noto Sans KR","맑은 고딕", sans-serif;
+  color: #292929;
+}
+h2{
+  font-family: "Kavoon", serif;
+  letter-spacing: -0.5px;
+  background: url('../img/bul_tit.png') no-repeat;
+  line-height: 1.8;/*1.6*/
+  padding-left: 30px;
+}
+li.selsct a{
+  color: var(--green);
+  font-weight: 600;
+}
+
+
+#wrap{
+  min-width: 1280px;
+  /*평소에는 100%이지만 1280보자 작아졌을 때는 1280보다 안작아지게*/
+}
+
+header{
+  border-top: 3px solid var(--green);
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  height: 165px;
+}
+.logo{
+  position: absolute;
+  left: calc(50% - 101px);
+  top: 35px;
+  /* margin-left: -101px; */
+}
+.logo a{
+  width: 202px;
+  height: 40px;
+  display: block;
+  background: url("../img/logo_w.png") no-repeat center/cover;
+  text-indent: -999999px;
+}
+#gnb{
+  /* border:  1px solid black; */
+  position: absolute;
+  top: 98px;
+  width: 100%;
+  text-align: center;
+}
+#gnb > ul{
+  display: inline-block;
+}
+#gnb > ul > li{
+  width: 165px;
+  float: left;
+  position: relative;/*sub기준*/
+}
+#gnb a.dp1{
+  display: block;
+  padding-top: 20px;
+  font-size: 18px;
+  letter-spacing: -0.25px;
+  font-weight: 600;
+  position: relative;
+  z-index: 100;
+}
+
+#gnb >ul>li:hover .dp1{
+  color: var(--green);
+}
+
+/* sub */
+.dp2{
+  position: absolute;
+  left: 0;
+  /* border: 1px solid pink; */
+  width: 100%;
+  padding: 87px 0 20px;
+  top: 0;
+  background: #fff;
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 99;
+}
+#gnb > ul > li:hover .dp2{
+  visibility: visible;
+  opacity: 1;
+  top:-20px;
+}
+/* .dp2 > ul{}
+.dp2 > ul > li{} */
+.dp2 > ul > li > a{
+  display: block;
+  font-size: 15px;
+  padding: 8px 0;
+  letter-spacing: -0.3px;
+  font-weight: 500;
+  color: var(--gray1);
+}
+
+.dp2 > ul > li > a:hover{
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* main_visual */
+#main_visual{}
+.main_visual_inner{
+  /* border: 3px solid black; */
+  position: relative;
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+}
+.main_visual_imgs{
+  /* border: 3px solid red; */
+  position: absolute;
+  left: 50%;
+  margin-left: -960px;
+}
+.main_visual_imgs img{}
+
+/* quicklink */
+.quicklink{
+  height: 80px;
+  /* border: 1px solid black; */
+  width: 1170px;
+  margin: auto;
+  position: relative;
+  top: -40px;
+}
+.quicklink_wrap{
+  /* border: 1px solid red; */
+  width: 600px;
+  display: table;
+  height: 100%;
+  float: right;
+}
+.quicklink_wrap > div{
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  vertical-align: middle;/*이게 적용이 된다. 테이블을 사용했을 경우*/
+}
+.quicklink_wrap > div > a{
+  font-size: 22px;
+  font-weight: 700;
+}
+.store{
+  background: var(--yellow);
+  border-radius: 30px 0 0;
+}
+.fran{
+  background: var(--green);
+  color: #fff;
+  border-radius: 0 0 30px;
+}
+
+.store::before, .fran::before{
+  display: inline-block;
+  content: "";
+  width: 34px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+
+.store::before{
+  background: url('../img/icon_map.png') no-repeat center;
+}
+.fran::before{
+  background: url('../img/icon_franchise.png') no-repeat;
+}
+
+/* menu */
+.menu{
+  padding-top: 60px;
+  height: 560px;
+}
+.menu h2{
+  font-size: 42px;
+}
+.menu_header{
+  width: 1170px;
+  margin: auto;
+  position: relative;
+}
+
+.tab{
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+.tab ul{
+  overflow: hidden;/*모바일에서는 안된다.권장 X*/
+}
+.tab li{
+  float: left;
+  margin-left:40px;
+}
+.tab a{
+  font-weight: 500;
+}
+
+.tab li + li::before{
+  display: inline-block;
+  content: "";
+  width: 1px;
+  height: 15px;
+  background-color: #ccc;
+  transform: translate(-20px, 1px);
+}
+/* .tab li + li::before 는 첫번 쨰 li다음(두번쨰) li부터 적용을 해줘 */
+
+.menu_wrap{
+  width: 1200px;
+  margin: auto;
+}
+.classic{}
+.menu_wrap ul{
+  display: flex;
+  gap: 30px;
+}
+.menu_wrap li{
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.menu_wrap li:hover{
+  flex: 1.3;
+}
+.menu_wrap li:hover::after{
+  display: block;
+}
+.menu_wrap li:hover strong{
+  font-size: 25px;
+}
+.menu_wrap li:hover p{
+  display: none;
+}
+
+.menu_wrap li a{}
+.menu_wrap li a > div{}
+.menu_wrap li figure{}
+.menu_wrap li figure img{
+  width: 100%;
+}
+.menu_wrap li strong{
+  font-size: 18px;
+  font-weight: 700;
+}
+.menu_wrap li p{
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--gray2);
+  line-height: 20px;
+}
+
+.menu_wrap li::after{
+  display: none;
+  position: absolute;
+  content: "";
+  width: 98px;
+  height: 98px;
+  background: url("../img/btn_more.png");
+  top:136px;
+  left: 125px;
+  cursor: pointer;
+}
+
+/* subway */
+.subway{
+  padding: 80px 0;
+  background: url('../img/bg_content.gif');
+}
+.subway_inner{
+  width: 1280px;
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(2, 300px);
+  grid-template-columns: 455px auto 324px;
+  row-gap: 30px;
+}
+/* .subway_inner > *{
+  border: 1px solid black;
+} */
+.util p, .history p{
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 40px;
+  letter-spacing: -0.1;
+}
+.subway_inner .btn{
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 8px 9px/*9px을 준 이유는 아래쪽이 더 좁아 보이기 때문에*/;
+  display: inline-block;/*가로길이 고정을 안하는 이유는 옆에서도 사용하기위해서*/
+  border-radius: 999px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.util{
+  margin-left: 55px;
+  background: url('../img/bg_utilization.png');
+  padding: 40px;/*40px 0 0 40px*/ 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.util .btn{
+  width: 92px;
+}
+
+.history{
+  grid-column: span 2;
+  background: url('../img/img_subway_history.png');
+  padding: 40px 0 40px 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.history .btn{
+  width: 128px;
+}
+
+.whats_new{
+  grid-column: span 2;
+  padding: 0 30px 0 55px;
+}
+.whats_new h2{
+  font-size: 30px;
+  line-height: 2.5;
+}
+.whats_new p{
+  padding-left: 20px;
+  text-align: center;
+  line-height: 1.3;
+  color: var(--gray1);
+}
+
+.whats_new_in{
+  padding: 75px 0 75px 60px;
+  background: #fff;
+  border-radius: 30px 0 30px 0;
+  height: 298px;/*300뭐지???????????????????????????????????????????????????????????????*/
+  display: flex;
+  gap: 150px;
+}
+
+.whats_new ul{}
+.whats_new li{
+  height: 35px;
+}
+.whats_new a{
+  position: relative;
+  display: inline-block;
+}
+.whats_new a:hover{
+  color: var(--green);
+}
+.whats_new li a::after{/*li이를 넣어주면 more까지는 안들어 간다.*/
+  /* display: block; 대신 */
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background: var(--green);
+  left: 0;/*가운데에서 퍼저나가가게 하고 싶은면 50%로 빠꾸고 hover에 0으로 입력*/
+  bottom: -3px;/*밑으로 내려가야 하기 때문에 -값을 준다.*/
+  transition: .25s;/*부드럽게 나오게 하기 위해서*/
+}
+.whats_new a:hover::after{
+  width: 100%;
+}
+
+.whats_new .more{
+  font-size: 14px;
+  color: var(--gray2);
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.banner{
+  overflow: hidden;
+}
+.banner figure{
+  border-radius: 0 30px 0 30px;
+  overflow: hidden;
+  width: 270px;
+}
+
+/*1번 방법
+.history{
+  grid-column: 2/4;
+}
+.whats_new{
+  grid-column: 1/3;
+} */
+
+/* quick */
+.quick{
+  padding: 40px 0;
+  text-align: center;
+}
+.quick ul{
+  display: inline-block;
+  overflow: hidden;
+}
+.quick li{
+  float: left;
+  margin-left: 70px;
+  /* border: 1px solid blue; */
+}
+.quick li:first-child{
+  margin-left: 0px;
+}
+.quick a{
+  /* border: 1px solid red; */
+  /* display: block; flex로 바꾸어 주었기 때문*/
+  height: 70px;
+  padding-left: 90px;/*이미지 여밳*/
+  position: relative;
+  text-align: left;/*부모한테 영행을 밭아서*/
+  display: flex;/*글자를 가운데 보내기 위해서*/
+  flex-direction: column;
+  justify-content: center;/*축이 바뀌었기때문에 aline노*/
+  gap: 10px;
+}
+.quick figure{
+  width: 70px;
+  height: 70px;
+  background: url('../img/icon_quickmenu.png');
+  position: absolute;/*포지션으로 둘둘 떠다님*/
+  left: 0;
+}
+
+.quick li:nth-child(1) figure{
+  background-position: 0 0;
+}
+.quick li:nth-child(2) figure{
+  background-position: -70px 0;
+}
+.quick li:nth-child(3) figure{
+  background-position: -140px 0;
+}
+.quick li:nth-child(4) figure{
+  background-position: -210px 0;
+}
+
+.quick strong{
+  display: block;
+  font-size: 17px;
+  font-weight: 700
+}
+.quick span{
+  font-size: 13px;
+  color: var(--gray2);
+}
+
+/* footer */
+footer{
+  background: #292929;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 20px 0;
+  position: relative;
+}
+.footer_in{
+  width: 1170px;
+  margin: auto;
+}
+
+.footer_menu::after{
+  position: absolute;
+  left: 0;
+  top: 56px;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);;
+}
+.footer_menu ul{
+  overflow: hidden;
+}
+.footer_menu li{
+  float: left;
+  margin-right: 20px;
+}
+.footer_menu a{
+  font-size: 14px;
+}
+.footer_menu strong{
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+address{
+  margin-top: 40px;
+  font-size: 13px;
+  line-height: 24px;
+}
+.sns{
+  float: right;
+  margin-top: -50px;
+}
+
+.sns a{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999999999999999999999px;
+}
+.sns a.inst{
+  background: url('../img/icon_sns_instar.png');
+  margin-right: 10px;
+}
+.sns a.fb{
+  background: url('../img/icon_sns_facebook.png');
+}
+.sns a:hover{
+  background-position: -50px 0;
+}
